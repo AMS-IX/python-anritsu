@@ -18,4 +18,4 @@
 #
 #	This library creates an API for Anritsu nework Generators
 #
-__all__ = ["port", "stream", "iptohex", "mactohex", "compare", "error", "analyzer"]
+__all__ = ["combined_tests", "port", "stream", "convert_calc", "compare", "error", "analyzer"]

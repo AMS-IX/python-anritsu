@@ -25,62 +25,62 @@ error.py - the error module contains classes to raise python-anritsu specific er
 """
 
 class Error(Exception):
-    """Base class for exceptions in this module."""
-    pass
+	"""Base class for exceptions in this module."""
+	pass
 
 class AnritsuCommandError(Error):
-    """Exception raised when an expected variable value is not set on a Anritsu after a commit.
+	"""Exception raised when an expected variable value is not set on a Anritsu after a commit.
 
-    :ivar command: The message which contains the variable
-    :ivar sent_value: The value we have sent and expected to be set on the Anritsu
-    :ivar anritsu_value: The variable value the Anritsu returns it has set.
-    """
+	:ivar command: The message which contains the variable
+	:ivar sent_value: The value we have sent and expected to be set on the Anritsu
+	:ivar anritsu_value: The variable value the Anritsu returns it has set.
+	"""
 
-    def __init__(self, command, sent_value, anritsu_value):
-        self.command = command
-        self.sent_value = sent_value
-        self.anritsu_value = anritsu_value
-    def __str__(self):
-        return repr('The command message \"' + self.command + '\" with variable \"' + self.sent_value + '\" was sent, but the Anritsu has set \"' + self.anritsu_value  + '\".')
+	def __init__(self, command, sent_value, anritsu_value):
+		self.command = command
+		self.sent_value = sent_value
+		self.anritsu_value = anritsu_value
+	def __str__(self):
+		return repr('The command message \"' + self.command + '\" with variable \"' + self.sent_value + '\" was sent, but the Anritsu has set \"' + self.anritsu_value  + '\".')
 
 class AnritsuQueryError(Error):
-    """Exception raised when an expected variable value is not set on a Anritsu after a commit.
+	"""Exception raised when an expected variable value is not set on a Anritsu after a commit.
 
-    :ivar query: The message which contains the variable
-    :ivar sent_value: The value we have sent and expected to be set on the Anritsu
-    :ivar anritsu_value: The variable value the Anritsu returns it has set.
-    """
+	:ivar query: The message which contains the variable
+	:ivar sent_value: The value we have sent and expected to be set on the Anritsu
+	:ivar anritsu_value: The variable value the Anritsu returns it has set.
+	"""
 
-    def __init__(self, query, sent_value, anritsu_value):
-        self.query = query
-        self.sent_value = sent_value
-        self.anritsu_value = anritsu_value
-    def __str__(self):
-        return repr('The query message \"' + self.query + '\" was sent, our input for the related command message was \"' + self.sent_value + '\" , but the Anritsu has set \"' + self.anritsu_value  + '\".')
+	def __init__(self, query, sent_value, anritsu_value):
+		self.query = query
+		self.sent_value = sent_value
+		self.anritsu_value = anritsu_value
+	def __str__(self):
+		return repr('The query message \"' + self.query + '\" was sent, our input for the related command message was \"' + self.sent_value + '\" , but the Anritsu has set \"' + self.anritsu_value  + '\".')
 
 class AnritsuSupported(Error):
-    """Exception raised when a requested feature is not supported.
+	"""Exception raised when a requested feature is not supported.
 
-    :ivar command: The message which contains the variable
-    :ivar sent_value: The value we have sent and expected to be set on the Anritsu
-    :ivar anritsu_value: The variable value the Anritsu returns it has set.
-    """
+	:ivar command: The message which contains the variable
+	:ivar sent_value: The value we have sent and expected to be set on the Anritsu
+	:ivar anritsu_value: The variable value the Anritsu returns it has set.
+	"""
 
-    def __init__(self, command, anritsu_type):
-        self.command = command
-        self.anritsu_type = anritsu_type
-    def __str__(self):
-        return repr('The command message \"' + self.command + '\" is not support for Anritsu type \"' + self.anritsu_type  + '\".')
+	def __init__(self, command, anritsu_type):
+		self.command = command
+		self.anritsu_type = anritsu_type
+	def __str__(self):
+		return repr('The command message \"' + self.command + '\" is not support for Anritsu type \"' + self.anritsu_type  + '\".')
 
 class AnritsuTimeout(Error):
-    """Exception raised when an expected variable value is not set on a Anritsu after a commit.
+	"""Exception raised when an expected variable value is not set on a Anritsu after a commit.
 
-    :ivar command: The message sent before a timeout occurred
-    """
+	:ivar command: The message sent before a timeout occurred
+	"""
 
-    def __init__(self, command):
-        self.command = command
-    def __str__(self):
-        return repr('The query message \"' + self.command + '\" was sent, followed by a timeout, meaning an invalid query or command message was sent or our connect was lost.')
+	def __init__(self, command):
+		self.command = command
+	def __str__(self):
+		return repr('The query message \"' + self.command + '\" was sent, followed by a timeout, meaning an invalid query or command message was sent or our connect was lost.')
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

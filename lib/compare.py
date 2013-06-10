@@ -25,17 +25,17 @@ compare.py - with this module two variables are compared to test if there both o
 """
 
 def counter(a, b):
-    """Used to compare the return values of two objects and returns their return values.
-    
-    :param a: the first return value with a required return value True or False.
-    :param b: the seconds return value with a required return value True or False.
+	"""Used to compare the return values of two objects and returns their return values.
+	
+	:param a: the first return value with a required return value True or False.
+	:param b: the seconds return value with a required return value True or False.
 
-    """
-    if a == True and b == True:
-        print 'Test passed'
-        return True
-    else:
-        print '!!! TEST FAILED !!!'
-        return False
+	"""
+	if a == True and b == True:
+		print 'Test passed'
+		return True
+	else:
+		print '!!! TEST FAILED !!!'
+		return False
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
